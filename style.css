@@ -1,10 +1,9 @@
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background-color: black;
-  color: white;
+  background-color: F7F2EC;
+  color: black;
 }
-
 }
 
 header {
@@ -46,6 +45,7 @@ main {
 main h1 {
   font-family: "Inter", sans-serif;
   font-size: 36px;
+  font-weight: 600;
   margin-bottom: 20px;
   text-align: center;
 }
