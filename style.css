@@ -1,3 +1,115 @@
+/* Подключение шрифтов Google */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Общие стили для секций */
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 10%;
+  align-items: flex-start;
+}
+
+.text {
+  flex: 1 1 50%;
+  padding-right: 20px;
+}
+
+.video-container {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 300px;
+  max-width: 500px;
+  border: none;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gallery iframe {
+  width: calc(33% - 13.33px);
+  height: 180px;
+}
+
+/* Цвета для каждой секции */
+.section:nth-child(1) {
+  background-color: #F7F2EC;
+  color: #091F5B;
+}
+
+.section:nth-child(2) {
+  background-color: #344EAD;
+  color: #F7F2EC;
+}
+
+.section:nth-child(3) {
+  background-color: #F2F1DF;
+  color: #091F5B;
+}
+
+.section:nth-child(4) {
+  background-color: #6F96D1;
+  color: #F7F2EC;
+}
+
+.section:nth-child(5) {
+  background-color: #FFF9EF;
+  color: #091F5B;
+}
+
+.section:nth-child(6) {
+  background-color: #091F5B;
+  color: #F7F2EC;
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    padding: 30px 5%;
+  }
+  .text, .video-container {
+    flex: 1 1 100%;
+    padding: 0;
+  }
+  .gallery iframe {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* Заголовки h1 */
+h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+/* Слово "Video" в заголовке */
+h1 span.video-word {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: italic;
+}
 
 
 
