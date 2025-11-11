@@ -1,4 +1,3 @@
-/* Подключение шрифтов Google */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
 
 body {
@@ -8,25 +7,57 @@ body {
   line-height: 1.6;
 }
 
-/* Общие стили для секций */
+/* Контейнер с max-width 1200px */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* Секции */
 .section {
-  padding: 50px 10%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 0;
+  align-items: flex-start;
 }
 
-/* Текст */
 .text {
-  margin-bottom: 30px;
+  flex: 1 1 50%;
+  padding-right: 20px;
 }
 
+.gallery {
+  flex: 1 1 50%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.gallery iframe {
+  width: calc(33% - 13.33px);
+  height: 180px;
+}
+
+/* Цвета для секций (можно добавить свои) */
+.section:nth-child(1) { background-color: #F7F2EC; color: #091F5B; }
+.section:nth-child(2) { background-color: #344EAD; color: #F7F2EC; }
+.section:nth-child(3) { background-color: #F2F1DF; color: #091F5B; }
+.section:nth-child(4) { background-color: #6F96D1; color: #F7F2EC; }
+.section:nth-child(5) { background-color: #FFF9EF; color: #091F5B; }
+.section:nth-child(6) { background-color: #091F5B; color: #F7F2EC; }
+
+/* Заголовки h1 */
 h1 {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 2.5rem;
   line-height: 1.2;
-  margin: 0 0 20px 0;
 }
 
+/* Слово "Video" в заголовке */
 h1 span.video-word {
   font-family: "DM Serif Display", serif;
   font-weight: 400;
@@ -34,72 +65,28 @@ h1 span.video-word {
 }
 
 p {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.3;
-  font-family: "Inter", sans-serif;
-  margin: 1em 0;
+  font-size: 1.5rem;            /* размер как у h2 */
+  font-weight: 400;           /* жирность как у h2 */
+  line-height: 1.3;           /* межстрочный интервал */
+  font-family: "Inter", sans-serif; /* основной шрифт */
+  margin: 1em 0;              /* отступ сверху и снизу */
 }
 
-/* Галерея */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.gallery iframe {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 8px;
-  border: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery iframe:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* Цвета для каждой секции */
-.section:nth-child(1) {
-  background-color: #F7F2EC;
-  color: #091F5B;
-}
-
-.section:nth-child(2) {
-  background-color: #344EAD;
-  color: #F7F2EC;
-}
-
-.section:nth-child(3) {
-  background-color: #F2F1DF;
-  color: #091F5B;
-}
-
-.section:nth-child(4) {
-  background-color: #6F96D1;
-  color: #F7F2EC;
-}
-
-.section:nth-child(5) {
-  background-color: #FFF9EF;
-  color: #091F5B;
-}
-
-.section:nth-child(6) {
-  background-color: #091F5B;
-  color: #F7F2EC;
-}
 
 /* Адаптив */
 @media (max-width: 768px) {
   .section {
-    padding: 30px 5%;
+    flex-direction: column;
+    padding: 30px 0;
   }
-  .gallery {
-    grid-template-columns: 1fr;
-    gap: 15px;
+  .text, .gallery {
+    flex: 1 1 100%;
+    padding: 0;
+  }
+  .gallery iframe {
+    width: 100%;
+    height: 200px;
   }
 }
+
 
