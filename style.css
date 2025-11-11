@@ -1,31 +1,3 @@
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background-color: #F7F2EC;
-  color: #091F5B; /* цвет текста */
-}
 
-main {
-  padding: 40px;
-  max-width: 800px;
-  margin: auto;
-}
-
-main h1 {
-  color: #091F5B; /* цвет текста */
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-main h1 .word1 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-}
-
-main h1 .word2 {
-  font-family: 'DM Serif Display', serif;
-  font-weight: 400;
-  font-style: italic;
-}
 
 
