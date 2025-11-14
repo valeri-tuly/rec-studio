@@ -6,13 +6,14 @@
 <title>Video Landing Page</title>
 <link rel="stylesheet" href="style.css" />
 <!-- Video.js -->
-<link href="https://vjs.zencdn.net/9.0.0/video.min.css" rel="stylesheet" />
-<script src="https://vjs.zencdn.net/9.0.0/video.min.js"></script>
+<link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+<script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
 <!-- Video.js YouTube plugin -->
 <script src="https://cdn.jsdelivr.net/npm/videojs-youtube/dist/Youtube.min.js"></script>
 </head>
 <body>
 
+<!-- Section 1 -->
 <div class="section" data-videos='["https://www.youtube.com/watch?v=4yd1rUzLM3Q","https://www.youtube.com/watch?v=bRf_rv6eb2k","https://www.youtube.com/watch?v=GMnO-YdWAAw"]'>
   <div class="container">
     <div class="text">
@@ -22,7 +23,9 @@
     <div class="gallery"></div>
   </div>
 </div>
-  <div class="section" data-videos='["https://www.youtube.com/watch?v=NRMCnML6em8","https://www.youtube.com/watch?v=l2DAuRU1xKE","https://www.youtube.com/watch?v=pSZsEmkhUEI"]'>
+
+<!-- Section 2 -->
+<div class="section" data-videos='["https://www.youtube.com/watch?v=NRMCnML6em8","https://www.youtube.com/watch?v=l2DAuRU1xKE","https://www.youtube.com/watch?v=pSZsEmkhUEI"]'>
   <div class="container">
     <div class="text">
       <h1>Expert <span class="video-word">Video</span></h1>
@@ -86,24 +89,29 @@ document.addEventListener("DOMContentLoaded", function() {
     videos.forEach(src => {
       const wrapper = document.createElement('div');
       wrapper.className = 'video-wrapper';
+
       const videoEl = document.createElement('video');
       videoEl.className = 'video-js';
       videoEl.setAttribute('controls', '');
+      videoEl.setAttribute('muted', '');
       wrapper.appendChild(videoEl);
       gallery.appendChild(wrapper);
 
       const player = videojs(videoEl, {
         techOrder: ['youtube'],
-        youtube: { ytControls: 0 },
-        sources: [{ type: 'video/youtube', src }]
+        youtube: {
+          ytControls: 2,
+          modestbranding: 1,
+          rel: 0
+        },
+        sources: [{ type: 'video/youtube', src }],
+        fluid: true
       });
 
       allPlayers.push(player);
 
       player.on('play', () => {
-        allPlayers.forEach(p => {
-          if (p !== player) p.pause();
-        });
+        allPlayers.forEach(p => { if (p !== player) p.pause(); });
       });
     });
   });
