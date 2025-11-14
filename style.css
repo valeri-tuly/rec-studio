@@ -9,27 +9,12 @@ html, body {
 }
 
 /* Контейнер для центрирования контента */
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: flex-start; /* выравниваем текст и галерею по верху */
-  gap: 20px; /* расстояние между текстом и видео */
+  padding: 0 20px; /* внутренние отступы */
   box-sizing: border-box;
-}
-.text {
-  flex: 0 0 350px; /* фиксированная ширина для текста, чтобы все секции выравнивались */
-  text-align: right; /* текст по правому краю на десктопе */
-}
-
-.gallery {
-  flex: 1 1 auto; /* видео занимает оставшееся пространство */
-  display: flex;
-  gap: 20px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  background: none; /* фон секции должен быть виден */
 }
 
 /* Секции на всю ширину */
@@ -50,4 +35,80 @@ html, body {
 .section:nth-child(5) { background-color: #FFF9EF; color: #091F5B; }
 .section:nth-child(6) { background-color: #091F5B; color: #F7F2EC; }
 
-/* Кон*
+/* Контент внутри секции */
+.text {
+  flex: 1 1 40%;
+  min-width: 280px;
+  padding-right: 20px;
+  text-align: right; /* текст по правому краю */
+}
+
+.gallery {
+  flex: 1 1 55%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* Видео */
+.gallery video {
+  flex: 0 0 calc((100% - 40px) / 3);
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Заголовки */
+h1 {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0.2em 0;
+}
+
+h1 span.video-word {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 1em 0;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .gallery video {
+    flex: 0 0 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    padding: 30px 0;
+  }
+  .text, .gallery {
+    flex: 1 1 100%;
+    padding: 0;
+    text-align: left; /* на мобильных лучше слева */
+  }
+  .gallery {
+    flex-wrap: wrap;
+  }
+  .gallery video {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
