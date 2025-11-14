@@ -91,46 +91,45 @@
     </div>
   </div>
 
-  <!-- Скрипт: Video.js + Авто-вертикальные видео + Анимация секций -->
+  <!-- Скрипт: Video.js + авто вертикальные видео + анимация секций -->
   <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
   <script>
-  // Определение вертикальных видео через oEmbed + инициализация Video.js
-  async function detectAspect(videoEl) {
-    const url = videoEl.dataset.src;
-    const api = `https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`;
-    try {
-      const res = await fetch(api);
-      const data = await res.json();
-      if (data.height > data.width) {
-        videoEl.classList.add("vertical");
+    async function detectAspect(videoEl) {
+      const url = videoEl.dataset.src;
+      const api = `https://www.youtube.com/oembed?url=${encodeURIComponent(url)}&format=json`;
+      try {
+        const res = await fetch(api);
+        const data = await res.json();
+        if (data.height > data.width) {
+          videoEl.classList.add("vertical");
+        }
+        // Инициализация Video.js
+        videojs(videoEl, {
+          techOrder: ["youtube"],
+          sources: [{ type: "video/youtube", src: url }],
+          youtube: { modestbranding: true, rel: 0 }
+        });
+      } catch(err) {
+        console.error("Ошибка oEmbed", err);
       }
-    } catch(err) {
-      console.error("Ошибка oEmbed", err);
     }
-  }
 
-  async function initPlayers() {
-    const videos = document.querySelectorAll("video[data-src]");
-    for (const el of videos) {
-      await detectAspect(el);
-      videojs(el, {
-        techOrder: ["youtube"],
-        sources: [{ type: "video/youtube", src: el.dataset.src }]
+    async function initPlayers() {
+      const videos = document.querySelectorAll("video[data-src]");
+      for (const el of videos) {
+        await detectAspect(el);
+      }
+    }
+    initPlayers();
+
+    // Анимация секций при скролле
+    const sections = document.querySelectorAll(".section");
+    const secObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add("visible");
       });
-    }
-  }
-  initPlayers();
-
-  // Анимация появления секций
-  const sections = document.querySelectorAll(".section");
-  const secObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.2 });
-  sections.forEach(sec => secObserver.observe(sec));
+    }, { threshold: 0.2 });
+    sections.forEach(sec => secObserver.observe(sec));
   </script>
 
 </body>
