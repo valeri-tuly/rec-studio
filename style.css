@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
 
 body {
@@ -22,6 +23,10 @@ body {
   width: 100%;
   padding: 0 20px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* текст сверху, галерея снизу */
+  justify-content: center;
+  height: 100%; /* растянуть на всю высоту секции */
 }
 
 .text {
@@ -55,14 +60,15 @@ p {
 
 .gallery {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  justify-content: space-between; /* равные отступы между видео */
+  align-items: center;
+  gap: 20px; /* дополнительный отступ */
+  flex-wrap: wrap; /* чтобы видео не выходили за контейнер */
 }
 
 .video-js {
-  width: 360px;
-  height: 640px;
+  width: calc((1200px - 2 * 20px) / 3); /* три видео с учётом gap */
+  height: 640px; /* вертикальное видео 9:16 */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -74,6 +80,7 @@ p {
 .section:nth-child(5) { background-color: #FFF9EF; color: #091F5B; }
 .section:nth-child(6) { background-color: #091F5B; color: #F7F2EC; }
 
+/* Адаптив для мобильных */
 @media (max-width: 768px) {
   .text {
     flex-direction: column;
@@ -82,5 +89,13 @@ p {
   }
   h1 { font-size: 2rem; }
   p { font-size: 1rem; }
-  .video-js { width: 90%; height: auto; }
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+  .video-js {
+    width: 90%;
+    height: auto;
+  }
 }
+
