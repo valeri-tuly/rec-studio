@@ -1,30 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
 
-html, body {
+body {
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
-  font-family: "Inter", sans-serif;
   line-height: 1.6;
-  background: transparent; /* фон за секциями прозрачный */
+  background-color: #fff;
 }
 
-/* Контейнер для центрирования контента */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-  background: none;
-}
-
-/* Секции на всю ширину */
+/* Контейнер секции */
 .section {
-  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* центрируем */
   display: flex;
-  justify-content: center;
-  padding: 50px 0;
   flex-wrap: wrap;
+  padding: 50px 20px;
+  align-items: flex-start;
+}
+
+.text {
+  flex: 1 1 50%;
+  padding-right: 20px;
   box-sizing: border-box;
+}
+
+.gallery {
+  flex: 1 1 50%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap; /* все видео в одну линию на десктопе */
+  overflow-x: auto; /* если видео не помещаются, добавляется скролл */
+  box-sizing: border-box;
+}
+
+/* Видео */
+.gallery video {
+  flex: 0 0 auto;
+  width: calc((100% - 40px) / 3); /* 3 видео в ряд, gap = 20px */
+  height: 180px;
 }
 
 /* Цвета секций */
@@ -35,39 +48,12 @@ html, body {
 .section:nth-child(5) { background-color: #FFF9EF; color: #091F5B; }
 .section:nth-child(6) { background-color: #091F5B; color: #F7F2EC; }
 
-/* Контент внутри секции */
-.text {
-  flex: 1 1 40%;
-  min-width: 280px;
-  padding-right: 20px;
-  text-align: right; /* текст по правому краю */
-}
-
-.gallery {
-  flex: 1 1 55%;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap; /* перенос видео на следующую строку */
-  overflow-x: hidden; /* убираем горизонтальный скролл */
-  justify-content: center;
-}
-
-/* Видео */
-.gallery video {
-  flex: 1 1 calc(33% - 20px); /* три видео на ряд */
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
 /* Заголовки */
 h1 {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 2.5rem;
   line-height: 1.2;
-  margin: 0.2em 0;
 }
 
 h1 span.video-word {
@@ -84,32 +70,33 @@ p {
 }
 
 /* Адаптив */
-@media (max-width: 1024px) {
-  .gallery video {
-    flex: 1 1 45%; /* два видео на ряд */
-  }
-}
-
 @media (max-width: 768px) {
   .section {
     flex-direction: column;
-    padding: 30px 0;
+    padding: 30px 20px;
   }
-  .text, .gallery {
+
+  .text,
+  .gallery {
     flex: 1 1 100%;
     padding: 0;
-    text-align: left; /* на мобильных слева */
   }
+
   .gallery {
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* видео в колонку */
+    gap: 15px;
   }
+
   .gallery video {
-    flex: 1 1 100%; /* одно видео на ряд */
+    width: 100%;
+    height: auto;
   }
-  h1 {
-    font-size: 2rem;
-  }
+
   p {
     font-size: 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+    widows: 2;
+    orphans: 2;
   }
 }
