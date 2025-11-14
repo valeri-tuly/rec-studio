@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
 
 body {
@@ -10,7 +9,7 @@ body {
 
 .section {
   width: 100%;
-  height: 1000px;
+  min-height: 1000px; /* для десктопа */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +25,7 @@ body {
   display: flex;
   flex-direction: column; /* текст сверху, галерея снизу */
   justify-content: center;
-  height: 100%; /* растянуть на всю высоту секции */
+  height: 100%; 
 }
 
 .text {
@@ -60,15 +59,15 @@ p {
 
 .gallery {
   display: flex;
-  justify-content: space-between; /* равные отступы между видео */
+  justify-content: space-between;
   align-items: center;
-  gap: 20px; /* дополнительный отступ */
-  flex-wrap: wrap; /* чтобы видео не выходили за контейнер */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .video-js {
-  width: calc((1200px - 2 * 20px) / 3); /* три видео с учётом gap */
-  height: 640px; /* вертикальное видео 9:16 */
+  width: calc((1200px - 2 * 20px) / 3);
+  height: 640px; /* вертикальное 9:16 */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -80,22 +79,38 @@ p {
 .section:nth-child(5) { background-color: #FFF9EF; color: #091F5B; }
 .section:nth-child(6) { background-color: #091F5B; color: #F7F2EC; }
 
-/* Адаптив для мобильных */
+/* Адаптив для планшетов и мобильных */
+@media (max-width: 1024px) {
+  .gallery {
+    gap: 15px;
+  }
+  .video-js {
+    width: calc((100% - 2 * 15px) / 2); /* два видео в ряд на планшете */
+    height: auto;
+    aspect-ratio: 9 / 16;
+  }
+}
+
 @media (max-width: 768px) {
   .text {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
-  h1 { font-size: 2rem; }
-  p { font-size: 1rem; }
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
   .gallery {
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
   .video-js {
-    width: 90%;
+    width: 90%; /* почти вся ширина экрана */
     height: auto;
+    aspect-ratio: 9 / 16;
   }
 }
-
