@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Landing Page</title>
   <link rel="stylesheet" href="style.css" />
-
   <!-- Video.js -->
   <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
   <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
-
   <!-- Video.js YouTube plugin -->
   <script src="https://cdn.jsdelivr.net/npm/videojs-youtube/dist/Youtube.min.js"></script>
 </head>
@@ -17,63 +15,74 @@
 
   <!-- Product Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=4yd1rUzLM3Q","https://www.youtube.com/watch?v=bRf_rv6eb2k","https://www.youtube.com/watch?v=GMnO-YdWAAw"]'>
-    <div class="text">
-      <h1>Product <span class="video-word">Video</span></h1>
-      <p>Näyttää tuotteesi toiminnassa…</p>
+    <div class="container">
+      <div class="text">
+        <h1>Product <span class="video-word">Video</span></h1>
+        <p>Näyttää tuotteesi toiminnassa…</p>
+      </div>
+      <div class="gallery"></div>
     </div>
-    <div class="gallery"></div>
   </div>
 
   <!-- Expert Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=NRMCnML6em8","https://www.youtube.com/watch?v=l2DAuRU1xKE","https://www.youtube.com/watch?v=pSZsEmkhUEI"]'>
-    <div class="text">
-      <h1>Expert <span class="video-word">Video</span></h1>
-      <p>Muoto, jossa sinä tai asiantuntija…</p>
+    <div class="container">
+      <div class="text">
+        <h1>Expert <span class="video-word">Video</span></h1>
+        <p>Muoto, jossa sinä tai asiantuntija…</p>
+      </div>
+      <div class="gallery"></div>
     </div>
-    <div class="gallery"></div>
   </div>
 
   <!-- Brand Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=x3_mxHNcWck"]'>
-    <div class="text">
-      <h1>Brand <span class="video-word">Video</span></h1>
-      <p>Imagoa rakentava video…</p>
+    <div class="container">
+      <div class="text">
+        <h1>Brand <span class="video-word">Video</span></h1>
+        <p>Imagoa rakentava video…</p>
+      </div>
+      <div class="gallery"></div>
     </div>
-    <div class="gallery"></div>
   </div>
 
   <!-- Interview & Storytelling Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=MrmOT-uk3rU","https://www.youtube.com/watch?v=BIlUadUuXeo"]'>
-    <div class="text">
-      <h1>Interview & Storytelling <span class="video-word">Video</span></h1>
-      <p>Haastattelut ja dokumentaariset…</p>
+    <div class="container">
+      <div class="text">
+        <h1>Interview & Storytelling <span class="video-word">Video</span></h1>
+        <p>Haastattelut ja dokumentaariset…</p>
+      </div>
+      <div class="gallery"></div>
     </div>
-    <div class="gallery"></div>
   </div>
 
   <!-- Lifestyle / Motion Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=IjooXWYf3ss","https://www.youtube.com/watch?v=cs_SECCH8No","https://www.youtube.com/watch?v=eGFrNdN7_h8"]'>
-    <div class="text">
-      <h1>Lifestyle / Motion <span class="video-word">Video</span></h1>
-      <p>Dynaamisia videoita ihmisistä…</p>
+    <div class="container">
+      <div class="text">
+        <h1>Lifestyle / Motion <span class="video-word">Video</span></h1>
+        <p>Dynaamisia videoita ihmisistä…</p>
+      </div>
+      <div class="gallery"></div>
     </div>
-    <div class="gallery"></div>
   </div>
 
   <!-- Educational Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=QcjiMKhD2o4","https://www.youtube.com/watch?v=hybouEe08z8","https://www.youtube.com/watch?v=rNVtky-QmpA"]'>
-    <div class="text">
-      <h1>Educational <span class="video-word">Video</span></h1>
-      <p>Vaiheittaisia ohjeita…</p>
+    <div class="container">
+      <div class="text">
+        <h1>Educational <span class="video-word">Video</span></h1>
+        <p>Vaiheittaisia ohjeita…</p>
+      </div>
+      <div class="gallery"></div>
     </div>
-    <div class="gallery"></div>
   </div>
 
   <!-- Инициализация Video.js с управлением одним видео -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const allPlayers = [];
-
       document.querySelectorAll('.section').forEach(section => {
         const videos = JSON.parse(section.dataset.videos);
         const gallery = section.querySelector('.gallery');
@@ -95,13 +104,9 @@
 
           allPlayers.push(player);
 
-          // Событие: если это видео играет — ставим на паузу все остальные
+          // Если одно видео играет — пауза для остальных
           player.on('play', () => {
-            allPlayers.forEach(p => {
-              if (p !== player) {
-                p.pause();
-              }
-            });
+            allPlayers.forEach(p => { if (p !== player) p.pause(); });
           });
         });
       });
