@@ -13,19 +13,18 @@
 </head>
 <body>
 
-<!-- Section template -->
+<!-- Section 1 -->
 <div class="section" data-videos='["https://www.youtube.com/watch?v=4yd1rUzLM3Q","https://www.youtube.com/watch?v=bRf_rv6eb2k","https://www.youtube.com/watch?v=GMnO-YdWAAw"]'>
   <div class="container">
-    <!-- Текстовый блок -->
     <div class="text">
       <h1>Product <span class="video-word">Video</span></h1>
       <p>Näyttää tuotteesi toiminnassa…</p>
     </div>
-    <!-- Галерея видео -->
     <div class="gallery"></div>
   </div>
 </div>
 
+<!-- Section 2 -->
 <div class="section" data-videos='["https://www.youtube.com/watch?v=NRMCnML6em8","https://www.youtube.com/watch?v=l2DAuRU1xKE","https://www.youtube.com/watch?v=pSZsEmkhUEI"]'>
   <div class="container">
     <div class="text">
@@ -36,6 +35,7 @@
   </div>
 </div>
 
+<!-- Section 3 -->
 <div class="section" data-videos='["https://www.youtube.com/watch?v=x3_mxHNcWck"]'>
   <div class="container">
     <div class="text">
@@ -46,6 +46,7 @@
   </div>
 </div>
 
+<!-- Section 4 -->
 <div class="section" data-videos='["https://www.youtube.com/watch?v=MrmOT-uk3rU","https://www.youtube.com/watch?v=BIlUadUuXeo"]'>
   <div class="container">
     <div class="text">
@@ -56,6 +57,7 @@
   </div>
 </div>
 
+<!-- Section 5 -->
 <div class="section" data-videos='["https://www.youtube.com/watch?v=IjooXWYf3ss","https://www.youtube.com/watch?v=cs_SECCH8No","https://www.youtube.com/watch?v=eGFrNdN7_h8"]'>
   <div class="container">
     <div class="text">
@@ -66,6 +68,7 @@
   </div>
 </div>
 
+<!-- Section 6 -->
 <div class="section" data-videos='["https://www.youtube.com/watch?v=QcjiMKhD2o4","https://www.youtube.com/watch?v=hybouEe08z8","https://www.youtube.com/watch?v=rNVtky-QmpA"]'>
   <div class="container">
     <div class="text">
@@ -83,18 +86,27 @@ document.addEventListener("DOMContentLoaded", function() {
   document.querySelectorAll('.section').forEach(section => {
     const videos = JSON.parse(section.dataset.videos);
     const gallery = section.querySelector('.gallery');
+
     videos.forEach(src => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'video-wrapper';
+
       const videoEl = document.createElement('video');
       videoEl.className = 'video-js';
       videoEl.setAttribute('controls', '');
       videoEl.setAttribute('muted', '');
-      gallery.appendChild(videoEl);
+
+      wrapper.appendChild(videoEl);
+      gallery.appendChild(wrapper);
+
       const player = videojs(videoEl, {
         techOrder: ['youtube'],
         youtube: { ytControls: 2 },
         sources: [{ type: 'video/youtube', src }]
       });
+
       allPlayers.push(player);
+
       player.on('play', () => {
         allPlayers.forEach(p => { if (p !== player) p.pause(); });
       });
