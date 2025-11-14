@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Landing Page</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Подключение стилей -->
+  <link rel="stylesheet" href="style.css">
 
   <!-- Video.js -->
   <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
@@ -15,16 +17,16 @@
 </head>
 <body>
 
-  <!-- Пример Product Video Section -->
+  <!-- Product Video Section -->
   <div class="section">
     <div class="text">
       <h1>Product <span class="video-word">Video</span></h1>
-      <p>Näyttää tuotteesi toiminnassa…</p>
+      <p>Näyttää tuotteesi toiminnassa: yksityiskohdat, materiaalit ja edut…</p>
     </div>
     <div class="gallery">
-      <video id="video1" class="video-js" controls width="640" height="360"></video>
-      <video id="video2" class="video-js" controls width="640" height="360"></video>
-      <video id="video3" class="video-js" controls width="640" height="360"></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=4yd1rUzLM3Q"}]}'></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=bRf_rv6eb2k"}]}'></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=GMnO-YdWAAw"}]}'></video>
     </div>
   </div>
 
@@ -32,12 +34,12 @@
   <div class="section">
     <div class="text">
       <h1>Expert <span class="video-word">Video</span></h1>
-      <p>Muoto, jossa sinä tai asiantuntija…</p>
+      <p>Muoto, jossa sinä tai asiantuntija kertoo tuotteesta…</p>
     </div>
     <div class="gallery">
-      <video id="video4" class="video-js" controls width="640" height="360"></video>
-      <video id="video5" class="video-js" controls width="640" height="360"></video>
-      <video id="video6" class="video-js" controls width="640" height="360"></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=NRMCnML6em8"}]}'></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=l2DAuRU1xKE"}]}'></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=pSZsEmkhUEI"}]}'></video>
     </div>
   </div>
 
@@ -45,10 +47,10 @@
   <div class="section">
     <div class="text">
       <h1>Brand <span class="video-word">Video</span></h1>
-      <p>Imagoa rakentava video…</p>
+      <p>Imagoa rakentava video, joka kertoo yrityksen tarinan…</p>
     </div>
     <div class="gallery">
-      <video id="video7" class="video-js" controls width="640" height="360"></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=x3_mxHNcWck"}]}'></video>
     </div>
   </div>
 
@@ -56,11 +58,11 @@
   <div class="section">
     <div class="text">
       <h1>Interview & Storytelling <span class="video-word">Video</span></h1>
-      <p>Haastattelut ja dokumentaariset…</p>
+      <p>Haastattelut ja dokumentaariset minivideot…</p>
     </div>
     <div class="gallery">
-      <video id="video8" class="video-js" controls width="640" height="360"></video>
-      <video id="video9" class="video-js" controls width="640" height="360"></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=MrmOT-uk3rU"}]}'></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=BIlUadUuXeo"}]}'></video>
     </div>
   </div>
 
@@ -68,12 +70,12 @@
   <div class="section">
     <div class="text">
       <h1>Lifestyle / Motion <span class="video-word">Video</span></h1>
-      <p>Dynaamisia videoita ihmisistä…</p>
+      <p>Dynaamisia videoita ihmisistä, tunnelmista ja liikkeestä…</p>
     </div>
     <div class="gallery">
-      <video id="video10" class="video-js" controls width="640" height="360"></video>
-      <video id="video11" class="video-js" controls width="640" height="360"></video>
-      <video id="video12" class="video-js" controls width="640" height="360"></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=IjooXWYf3ss"}]}'></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=cs_SECCH8No"}]}'></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=eGFrNdN7_h8"}]}'></video>
     </div>
   </div>
 
@@ -81,53 +83,17 @@
   <div class="section">
     <div class="text">
       <h1>Educational <span class="video-word">Video</span></h1>
-      <p>Vaiheittaisia ohjeita…</p>
+      <p>Vaiheittaisia ohjeita, selityksiä ja vinkkejä…</p>
     </div>
     <div class="gallery">
-      <video id="video13" class="video-js" controls width="640" height="360"></video>
-      <video id="video14" class="video-js" controls width="640" height="360"></video>
-      <video id="video15" class="video-js" controls width="640" height="360"></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=QcjiMKhD2o4"}]}'></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=hybouEe08z8"}]}'></video>
+      <video class="video-js" data-src='{"techOrder":["youtube"],"sources":[{"type":"video/youtube","src":"https://www.youtube.com/watch?v=rNVtky-QmpA"}]}'></video>
     </div>
   </div>
 
-  <script>
-    const videos = [
-      {id: 'video1', videoId: '4yd1rUzLM3Q'},
-      {id: 'video2', videoId: 'bRf_rv6eb2k'},
-      {id: 'video3', videoId: 'GMnO-YdWAAw'},
-      {id: 'video4', videoId: 'NRMCnML6em8'},
-      {id: 'video5', videoId: 'l2DAuRU1xKE'},
-      {id: 'video6', videoId: 'pSZsEmkhUEI'},
-      {id: 'video7', videoId: 'x3_mxHNcWck'},
-      {id: 'video8', videoId: 'MrmOT-uk3rU'},
-      {id: 'video9', videoId: 'BIlUadUuXeo'},
-      {id: 'video10', videoId: 'IjooXWYf3ss'},
-      {id: 'video11', videoId: 'cs_SECCH8No'},
-      {id: 'video12', videoId: 'eGFrNdN7_h8'},
-      {id: 'video13', videoId: 'QcjiMKhD2o4'},
-      {id: 'video14', videoId: 'hybouEe08z8'},
-      {id: 'video15', videoId: 'rNVtky-QmpA'}
-    ];
-
-    videos.forEach(v => {
-      const player = videojs(v.id, {
-        techOrder: ["youtube"],
-        controls: true,
-        autoplay: false,
-        youtube: {
-          modestbranding: true,
-          rel: 0,
-          origin: window.location.origin
-        }
-      });
-
-      // Загружаем видео через src()
-      player.src({
-        type: "youtube",
-        src: v.videoId
-      });
-    });
-  </script>
+  <!-- Подключение JS -->
+  <script src="script.js"></script>
 
 </body>
 </html>
