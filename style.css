@@ -37,7 +37,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* Плееры Video.js */
+/* Видео плееры Video.js */
 .gallery video {
   width: calc(33% - 13.33px);
   height: 180px;
@@ -53,7 +53,13 @@ body {
   box-shadow: 0 14px 32px rgba(0,0,0,0.25);
 }
 
-/* Скин Video.js */
+/* Вертикальные видео */
+.gallery video.vertical {
+  width: 220px;
+  height: 390px;
+}
+
+/* Video.js скин */
 .video-js .vjs-control-bar {
   background: rgba(0,0,0,0.55) !important;
   border-radius: 0 0 12px 12px;
@@ -115,9 +121,10 @@ p {
     padding: 0 20px;
   }
 
-  .gallery video {
+  .gallery video,
+  .gallery video.vertical {
     width: 100%;
-    height: 220px;
+    height: 450px;
   }
 
   p {
@@ -126,5 +133,3 @@ p {
     text-justify: inter-word;
   }
 }
-
-
