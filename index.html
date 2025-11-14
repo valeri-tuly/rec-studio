@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Video Landing Page</title>
 
-<!-- CSS -->
 <link rel="stylesheet" href="style.css" />
 
 <!-- Video.js -->
@@ -17,7 +16,7 @@
 </head>
 <body>
 
-<!-- Section template -->
+<!-- Секции -->
 <div class="section" data-videos='["https://www.youtube.com/watch?v=4yd1rUzLM3Q","https://www.youtube.com/watch?v=bRf_rv6eb2k","https://www.youtube.com/watch?v=GMnO-YdWAAw"]'>
   <div class="container">
     <div class="text">
@@ -87,11 +86,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const gallery = section.querySelector('.gallery');
 
     videos.forEach(src => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'video-wrapper';
+
       const videoEl = document.createElement('video');
       videoEl.className = 'video-js vjs-default-skin';
       videoEl.setAttribute('controls', '');
       videoEl.setAttribute('muted', '');
-      gallery.appendChild(videoEl);
+      wrapper.appendChild(videoEl);
+      gallery.appendChild(wrapper);
 
       const player = videojs(videoEl, {
         techOrder: ['youtube'],
@@ -106,7 +109,8 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         controlBar: {
           pictureInPictureToggle: false
-        }
+        },
+        fluid: true
       });
 
       allPlayers.push(player);
@@ -116,20 +120,6 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   });
-
-  // 🛑 ПО-НАСТОЯЩЕМУ УБИРАЕМ картинку-в-картинке из YouTube iframe
-  const observer = new MutationObserver(() => {
-    document.querySelectorAll('iframe').forEach(iframe => {
-      if (iframe.allow && iframe.allow.includes("picture-in-picture")) {
-        iframe.allow = iframe.allow
-          .replace("picture-in-picture", "")
-          .replace("accelerometer;", "")
-          .trim();
-      }
-    });
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
 });
 </script>
 
