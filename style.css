@@ -9,11 +9,10 @@ body {
 
 .section {
   width: 100%;
-  min-height: 1000px;
+  height: 1000px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -57,21 +56,22 @@ p {
   margin: 0;
 }
 
+/* Галерея */
 .gallery {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  height: 80%; /* высота видео-контейнера */
 }
 
-/* Вертикальные видео, высота 80% контейнера */
+/* Видео вертикальное 9:16 */
 .video-js {
-  height: 80%;               /* 80% от контейнера (1000px) */
-  aspect-ratio: 9 / 16;      /* сохраняем вертикальное соотношение */
+  height: 100%;          /* 80% от секции через .gallery */
+  aspect-ratio: 9 / 16;  /* вертикальное соотношение */
+  width: auto;           /* ширина высчитывается автоматически */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  flex: 1 1 auto;            /* чтобы три видео в ряд равномерно распределялись */
+  flex-shrink: 0;        /* не сжимать видео */
 }
 
 .section:nth-child(1) { background-color: #F7F2EC; color: #091F5B; }
@@ -81,18 +81,18 @@ p {
 .section:nth-child(5) { background-color: #FFF9EF; color: #091F5B; }
 .section:nth-child(6) { background-color: #091F5B; color: #F7F2EC; }
 
-/* Адаптив для планшетов */
+/* Планшет */
 @media (max-width: 1024px) {
-  .video-js {
-    width: calc((100% - 2 * 15px) / 2);
-    height: auto;
-  }
   .gallery {
     gap: 15px;
   }
+  .video-js {
+    height: auto;
+    width: calc((100% - 15px) / 2); /* два видео в ряд */
+  }
 }
 
-/* Адаптив для мобильных */
+/* Мобильные */
 @media (max-width: 768px) {
   .text {
     flex-direction: column;
