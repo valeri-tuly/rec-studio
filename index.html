@@ -10,10 +10,102 @@
   <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
   <!-- Video.js YouTube plugin -->
   <script src="https://cdn.jsdelivr.net/npm/videojs-youtube/dist/Youtube.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
+
+    body {
+      font-family: "Inter", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .section {
+      width: 100%;
+      height: 1000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .text {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    h1 span.video-word {
+      font-family: "DM Serif Display", serif;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .section:nth-child(1) { background-color: #F7F2EC; color: #091F5B; }
+    .section:nth-child(2) { background-color: #344EAD; color: #F7F2EC; }
+    .section:nth-child(3) { background-color: #F2F1DF; color: #091F5B; }
+    .section:nth-child(4) { background-color: #6F96D1; color: #F7F2EC; }
+    .section:nth-child(5) { background-color: #FFF9EF; color: #091F5B; }
+    .section:nth-child(6) { background-color: #091F5B; color: #F7F2EC; }
+
+    @media (max-width: 768px) {
+      .text {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Product Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=4yd1rUzLM3Q","https://www.youtube.com/watch?v=bRf_rv6eb2k","https://www.youtube.com/watch?v=GMnO-YdWAAw"]'>
     <div class="container">
       <div class="text">
@@ -24,7 +116,6 @@
     </div>
   </div>
 
-  <!-- Expert Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=NRMCnML6em8","https://www.youtube.com/watch?v=l2DAuRU1xKE","https://www.youtube.com/watch?v=pSZsEmkhUEI"]'>
     <div class="container">
       <div class="text">
@@ -35,7 +126,6 @@
     </div>
   </div>
 
-  <!-- Brand Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=x3_mxHNcWck"]'>
     <div class="container">
       <div class="text">
@@ -46,7 +136,6 @@
     </div>
   </div>
 
-  <!-- Interview & Storytelling Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=MrmOT-uk3rU","https://www.youtube.com/watch?v=BIlUadUuXeo"]'>
     <div class="container">
       <div class="text">
@@ -57,7 +146,6 @@
     </div>
   </div>
 
-  <!-- Lifestyle / Motion Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=IjooXWYf3ss","https://www.youtube.com/watch?v=cs_SECCH8No","https://www.youtube.com/watch?v=eGFrNdN7_h8"]'>
     <div class="container">
       <div class="text">
@@ -68,7 +156,6 @@
     </div>
   </div>
 
-  <!-- Educational Video Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=QcjiMKhD2o4","https://www.youtube.com/watch?v=hybouEe08z8","https://www.youtube.com/watch?v=rNVtky-QmpA"]'>
     <div class="container">
       <div class="text">
@@ -79,7 +166,6 @@
     </div>
   </div>
 
-  <!-- Video.js Initialization -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const allPlayers = [];
