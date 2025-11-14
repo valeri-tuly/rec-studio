@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
+
 body {
   font-family: "Inter", sans-serif;
   margin: 0;
@@ -5,18 +7,16 @@ body {
   line-height: 1.6;
 }
 
-/* Секции растянуты на всю ширину и фиксированной высоты */
 .section {
   width: 100%;
   height: 1000px;
   display: flex;
-  justify-content: center; /* Центрируем контейнер */
-  align-items: center;     /* Вертикальное центрирование */
+  justify-content: center;
+  align-items: center;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Контейнер ограничивает ширину контента */
 .container {
   max-width: 1200px;
   width: 100%;
@@ -24,13 +24,12 @@ body {
   box-sizing: border-box;
 }
 
-/* Текстовая строка */
 .text {
   display: flex;
   align-items: center;
-  gap: 20px; /* Расстояние между h1 и p */
+  gap: 20px;
   flex-wrap: wrap;
-  margin-bottom: 40px; /* Отступ до галереи */
+  margin-bottom: 40px;
 }
 
 h1 {
@@ -54,22 +53,20 @@ p {
   margin: 0;
 }
 
-/* Галерея на отдельной строке */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
 
-/* Видео */
-.gallery video {
-  width: 100%;
-  height: auto;
+.video-js {
+  width: 360px;
+  height: 640px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Цвета секций */
 .section:nth-child(1) { background-color: #F7F2EC; color: #091F5B; }
 .section:nth-child(2) { background-color: #344EAD; color: #F7F2EC; }
 .section:nth-child(3) { background-color: #F2F1DF; color: #091F5B; }
@@ -77,20 +74,13 @@ p {
 .section:nth-child(5) { background-color: #FFF9EF; color: #091F5B; }
 .section:nth-child(6) { background-color: #091F5B; color: #F7F2EC; }
 
-/* Адаптив */
 @media (max-width: 768px) {
   .text {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
-  h1 {
-    font-size: 2rem;
-  }
-  p {
-    font-size: 1rem;
-  }
-  .gallery {
-    grid-template-columns: 1fr;
-  }
+  h1 { font-size: 2rem; }
+  p { font-size: 1rem; }
+  .video-js { width: 90%; height: auto; }
 }
