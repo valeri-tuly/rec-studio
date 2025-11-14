@@ -1,42 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
-
-body {
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  background-color: #fff;
+/* Глобальный контейнер для центрирования и ограничения ширины */
+.container {
+  max-width: 1200px;
+  margin: 0 auto; /* Центрирование */
+  padding: 0 20px; /* Небольшие отступы по бокам */
+  box-sizing: border-box;
 }
 
-/* Контейнер секции */
+/* Секции */
 .section {
-  max-width: 1200px;
-  margin: 0 auto; /* центрируем */
   display: flex;
   flex-wrap: wrap;
-  padding: 50px 20px;
+  padding: 50px 0;
   align-items: flex-start;
 }
 
+/* Текст и галерея */
 .text {
   flex: 1 1 50%;
   padding-right: 20px;
-  box-sizing: border-box;
 }
 
 .gallery {
   flex: 1 1 50%;
   display: flex;
   gap: 20px;
-  flex-wrap: nowrap; /* все видео в одну линию на десктопе */
-  overflow-x: auto; /* если видео не помещаются, добавляется скролл */
-  box-sizing: border-box;
+  flex-wrap: wrap;
 }
 
 /* Видео */
 .gallery video {
-  flex: 0 0 auto;
-  width: calc((100% - 40px) / 3); /* 3 видео в ряд, gap = 20px */
+  width: calc(33% - 13.33px);
   height: 180px;
 }
 
@@ -73,25 +66,17 @@ p {
 @media (max-width: 768px) {
   .section {
     flex-direction: column;
-    padding: 30px 20px;
+    padding: 30px 0;
   }
-
-  .text,
-  .gallery {
+  .text, .gallery {
     flex: 1 1 100%;
-    padding: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
-
-  .gallery {
-    flex-wrap: wrap; /* видео в колонку */
-    gap: 15px;
-  }
-
   .gallery video {
     width: 100%;
-    height: auto;
+    height: 200px;
   }
-
   p {
     font-size: 1rem;
     text-align: justify;
