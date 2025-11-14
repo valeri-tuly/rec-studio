@@ -92,12 +92,19 @@ document.addEventListener("DOMContentLoaded", function() {
       videoEl.className = 'video-js';
       videoEl.setAttribute('controls', '');
       videoEl.setAttribute('muted', '');
+
       gallery.appendChild(videoEl);
 
       const player = videojs(videoEl, {
         techOrder: ['youtube'],
-        youtube: { ytControls: 2 },
-        sources: [{ type: 'video/youtube', src }]
+        youtube: {
+          ytControls: 2,
+          modestbranding: 1,
+          rel: 0
+        },
+        sources: [{ type: 'video/youtube', src }],
+        fluid: false,         // отключаем растяжение по ширине
+        aspectRatio: '9:16'   // вертикальное видео
       });
 
       allPlayers.push(player);
