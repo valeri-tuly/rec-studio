@@ -17,7 +17,7 @@ body {
 /* Секции растянутые на весь экран и фиксированной высоты */
 .section {
   width: 100%;
-  height: 1000px;
+  min-height: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,17 +77,18 @@ p {
 
 /* Видео в галерее */
 .gallery video {
-  width: calc((100% - 40px) / 3); /* если три видео в ряду */
-  max-width: 100%;
-  height: auto;
+  width: 321px;       /* фиксированная ширина для десктопа */
+  height: 472px;      /* фиксированная высота для десктопа */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;  /* чтобы видео красиво вписывалось */
 }
 
 /* Адаптив */
 @media (max-width: 1200px) {
   .gallery video {
-    width: calc((100% - 20px) / 2); /* два видео в ряду */
+    width: calc((100% - 20px) / 2); /* два видео в ряду на планшете */
+    height: auto;
   }
 }
 
@@ -99,6 +100,7 @@ p {
   h1 { font-size: 2rem; }
   p { font-size: 1rem; }
   .gallery video {
-    width: 100%;
+    width: 100%; /* одно видео в ряд на мобильных */
+    height: auto;
   }
 }
