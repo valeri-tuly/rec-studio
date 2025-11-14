@@ -1,52 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Inter:wght@400;600&display=swap');
 
-body {
-  font-family: "Inter", sans-serif;
+html, body {
   margin: 0;
   padding: 0;
+  font-family: "Inter", sans-serif;
   line-height: 1.6;
+  background: transparent; /* чтобы не появлялся белый фон за секциями */
 }
 
-/* Контейнер для центрирования и ограничения ширины */
+/* Контейнер для центрирования контента */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px; /* внутренние отступы */
   box-sizing: border-box;
+  background: none; /* фон секции должен быть виден */
 }
 
-/* Секции */
+/* Секции на всю ширину */
 .section {
+  width: 100%;
   display: flex;
   justify-content: center;
   padding: 50px 0;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
-/* Текст и галерея */
-.text {
-  flex: 1 1 40%;
-  min-width: 280px;
-  padding-right: 20px;
-}
-
-.gallery {
-  flex: 1 1 55%;
-  display: flex;          /* flex вместо grid */
-  gap: 20px;
-  flex-wrap: nowrap;      /* все видео в одну строку */
-  overflow-x: auto;       /* горизонтальный скролл при узком контейнере */
-}
-
-/* Видео */
-.gallery video {
-  flex: 0 0 calc((100% - 40px) / 3); /* три видео в ряд, равная ширина */
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* Цвета секций */
+/* Цвета секций на всю ширину */
 .section:nth-child(1) { background-color: #F7F2EC; color: #091F5B; }
 .section:nth-child(2) { background-color: #344EAD; color: #F7F2EC; }
 .section:nth-child(3) { background-color: #F2F1DF; color: #091F5B; }
@@ -54,55 +35,4 @@ body {
 .section:nth-child(5) { background-color: #FFF9EF; color: #091F5B; }
 .section:nth-child(6) { background-color: #091F5B; color: #F7F2EC; }
 
-/* Заголовки */
-h1 {
-  font-family: "Inter", sans-serif;
-  font-weight: 600;
-  font-size: 2.5rem;
-  line-height: 1.2;
-}
-
-h1 span.video-word {
-  font-family: "DM Serif Display", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-
-p {
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.3;
-  margin: 1em 0;
-}
-
-/* Адаптив */
-@media (max-width: 1024px) {
-  .gallery video {
-    flex: 0 0 300px; /* уменьшаем ширину видео для средних экранов */
-  }
-}
-
-@media (max-width: 768px) {
-  .section {
-    flex-direction: column;
-    padding: 30px 0;
-  }
-  .text, .gallery {
-    flex: 1 1 100%;
-    padding: 0;
-  }
-  .gallery {
-    flex-wrap: wrap;       /* на мобильных видео переходят на новую строку */
-    grid-template-columns: 1fr;
-  }
-  .gallery video {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  p {
-    font-size: 1rem;
-  }
-}
+/* Кон*
