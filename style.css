@@ -75,11 +75,11 @@ p {
   flex-wrap: wrap;
 }
 
-/* Видео в вертикальном формате 9:16 */
+/* Видео в галерее */
 .gallery video {
-  aspect-ratio: 9 / 16; /* Вертикальное видео */
-  width: calc((100% - 40px) / 3); /* Три видео в ряду */
+  width: calc((100% - 40px) / 3); /* если три видео в ряду */
   max-width: 100%;
+  height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -93,4 +93,12 @@ p {
 
 @media (max-width: 768px) {
   .text {
-    fle
+    flex-direction: column;
+    gap: 10px;
+  }
+  h1 { font-size: 2rem; }
+  p { font-size: 1rem; }
+  .gallery video {
+    width: 100%;
+  }
+}
