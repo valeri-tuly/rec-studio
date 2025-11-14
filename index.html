@@ -12,6 +12,7 @@
 </head>
 <body>
 
+  <!-- Example Section -->
   <div class="section" data-videos='["https://www.youtube.com/watch?v=4yd1rUzLM3Q","https://www.youtube.com/watch?v=bRf_rv6eb2k","https://www.youtube.com/watch?v=GMnO-YdWAAw"]'>
     <div class="container">
       <div class="text">
@@ -22,17 +23,7 @@
     </div>
   </div>
 
-  <div class="section" data-videos='["https://www.youtube.com/watch?v=NRMCnML6em8","https://www.youtube.com/watch?v=l2DAuRU1xKE","https://www.youtube.com/watch?v=pSZsEmkhUEI"]'>
-    <div class="container">
-      <div class="text">
-        <h1>Expert <span class="video-word">Video</span></h1>
-        <p>Muoto, jossa sinä tai asiantuntija…</p>
-      </div>
-      <div class="gallery"></div>
-    </div>
-  </div>
-
-  <!-- Добавьте остальные секции аналогично -->
+  <!-- Другие секции добавляются аналогично -->
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -50,7 +41,7 @@
             techOrder: ['youtube'],
             youtube: { ytControls: 2 },
             sources: [{ type: 'video/youtube', src }],
-            aspectRatio: '9:16' // вертикальный формат
+            aspectRatio: '9:16'
           });
           allPlayers.push(player);
           player.on('play', () => {
