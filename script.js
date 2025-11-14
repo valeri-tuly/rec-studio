@@ -1,26 +1,31 @@
-// Lazy-loading Video.js YouTube players
+// Ленивое подключение YouTube видео через Video.js
 document.addEventListener("DOMContentLoaded", () => {
-  const videos = document.querySelectorAll("video[data-src]");
+  const videos = document.querySelectorAll("video[data-youtube]");
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const video = entry.target;
-        const config = JSON.parse(video.getAttribute("data-src"));
+        const videoId = video.getAttribute("data-youtube");
 
-        // Создаем Video.js плеер с правильной конфигурацией
-        const player = videojs(video, config, function() {
-          // На десктопе YouTube блокирует автоплей, оставляем видео с превью
-          this.ready(() => {
-            // Можно оставить превью, пользователь кликнет для воспроизведения
-            this.poster(); 
-          });
+        // Создаем Video.js плеер
+        videojs(video, {
+          techOrder: ["youtube"],
+          sources: [{
+            type: "video/youtube",
+            src: `https://www.youtube.com/watch?v=${videoId}`
+          }],
+          youtube: {
+            modestbranding: true,
+            rel: 0,
+            showinfo: false
+          },
+          controls: true,
+          preload: "auto",
+          fluid: true
         });
 
-        // Убираем data-src чтобы больше не обрабатывать
-        video.removeAttribute("data-src");
-
-        // Останавливаем наблюдение
+        video.removeAttribute("data-youtube");
         observer.unobserve(video);
       }
     });
@@ -29,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   videos.forEach(video => observer.observe(video));
 });
 
-// Section fade-in animation
+// Анимация появления секций
 const sections = document.querySelectorAll(".section");
 
 const secObserver = new IntersectionObserver(entries => {
