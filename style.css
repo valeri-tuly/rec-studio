@@ -17,7 +17,7 @@ header {
   background-color: #F7F2EC;
   color: #091F5B;
   font-family: "Poppins", sans-serif;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -26,7 +26,7 @@ header {
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,11 +36,6 @@ header {
 
 .logo img {
   height: 50px;
-}
-
-.contact-social .social-icon {
-  width: 32px;
-  height: 32px;
 }
 
 .nav-links {
@@ -184,7 +179,7 @@ h1 {
 
 h1 span.video-word {
   font-family: "Kalam", cursive;
-  font-weight: 500;
+  font-weight: 700; /* жирный */
   font-style: normal;
   font-size: 3.25rem;
 }
@@ -274,7 +269,7 @@ p {
 .hero-title .hero-accent {
   font-family: "Kalam", cursive;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700; /* жирный */
   font-size: 4.25rem;
   color: #6F96D1;
 }
