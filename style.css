@@ -298,7 +298,8 @@ p {
   .hero-btn {
     position: absolute;
     left: 50%;                 /* по центру горизонтали */
-    bottom: 40%;               /* 40% от низа контейнера */
+    bottom: 60%;               /* 40% от низа контейнера */
     transform: translateX(-50%); /* центрируем по горизонтали */
+    z-index: 2; 
   }
 }
