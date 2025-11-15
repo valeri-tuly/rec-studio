@@ -253,7 +253,7 @@ p {
 /* Картинка */
 .hero-image {
   display: block;
-  width: 100%;        /* занимает всю ширину экрана */
+  width: 90%;        /* занимает всю ширину экрана */
   height: auto;
   position: relative; /* для привязки кнопки */
   top: 0;
