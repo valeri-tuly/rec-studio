@@ -246,7 +246,7 @@ p {
 .hero {
   position: relative;
   width: 100%;
-  min-height: 80vh;          /* высота на весь экран */
+  min-height: 90vh;          /* высота на весь экран */
   background-color: #F7F2EC;  /* основной фон */
   overflow: visible;          /* чтобы PNG мог "налезать" на следующую секцию */
 }
