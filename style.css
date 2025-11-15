@@ -242,55 +242,16 @@ p {
 /* ===========================
    HERO
    =========================== */
-.hero {
-  width: 100%;
-  background-color: #F7F2EC;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 62.5rem; /* 1000px */
-}
-
 .hero-container {
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 1.25rem;
   text-align: center;
-  box-sizing: border-box;
 }
 
-.hero-title {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 4rem;
-  color: #091F5B;
+.hero-image {
+  width: 100%;       /* На десктопе ширина не ограничена */
+  max-height: 800px; /* Ограничение высоты */
+  object-fit: cover; /* Чтобы изображение не растягивалось */
+  display: block;
   margin: 0 auto;
-  line-height: 1.2;
-}
-
-.hero-title .hero-accent {
-  font-family: "Kalam", cursive;
-  font-style: normal;
-  font-weight: 700; /* жирный */
-  font-size: 4.25rem;
-  color: #6F96D1;
-}
-
-.hero-btn {
-  display: inline-block;
-  margin-top: 2.5rem;
-  padding: 0.75rem 1.75rem;
-  background-color: #344EAD;
-  color: #F7F2EC;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 0.375rem;
-  transition: 0.2s ease;
-}
-
-.hero-btn:hover {
-  background-color: #2d4294;
 }
 
 /* Адаптив */
