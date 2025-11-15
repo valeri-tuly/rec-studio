@@ -240,3 +240,71 @@ p {
     aspect-ratio: 9 / 16;
   }
 }
+
+/* ===========================
+   HERO
+   =========================== */
+.hero {
+  width: 100%;
+  background-color: #F7F2EC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1000px; /* десктоп */
+}
+
+.hero-container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.hero-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 4rem;
+  color: #091F5B;
+  margin: 0 auto;
+  line-height: 1.2;
+}
+
+.hero-title .hero-accent {
+  font-family: "DM Serif Display", serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 4rem;
+  color: #6F96D1;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 28px;
+  background-color: #344EAD;
+  color: #F7F2EC;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.hero-btn:hover {
+  background-color: #2d4294;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 80px 0;
+  }
+
+  .hero-title,
+  .hero-title .hero-accent {
+    font-size: 2.5rem;
+  }
+}
+
