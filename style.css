@@ -147,33 +147,34 @@ header {
     box-sizing: border-box;
 }
 
-.section:nth-child(2) {
-    background-color: #344EAD;
-    color: #F7F2EC;
-}
-
+/* =========================== Секции с типами видео =========================== */
 .section:nth-child(1) {
-    background-color: #F7F2EC;
-    color: #091F5B;
+    background-color: #344EAD; /* новый фон */
+    color: #F7F2EC;           /* новый цвет текста */
 }
 
-.section:nth-child(3) {
-    background-color: #F2F1DF;
-    color: #091F5B;
-}
-
-.section:nth-child(4) {
-    background-color: #6F96D1;
-    color: #F7F2EC;
-}
-
-.section:nth-child(5) {
+.section:nth-child(2) {
     background-color: #FFF9EF;
     color: #091F5B;
 }
 
-.section:nth-child(6) {
+.section:nth-child(3) {
+    background-color: #D0E4FF;
+    color: #FFF9EF;
+}
+
+.section:nth-child(4) {
     background-color: #091F5B;
+    color: #F7F2EC;
+}
+
+.section:nth-child(5) {
+    background-color: #F2F1DF;
+    color: #091F5B;
+}
+
+.section:nth-child(6) {
+    background-color: #6F96D1;
     color: #F7F2EC;
 }
 
