@@ -201,6 +201,30 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("MeG_AUJX35hyw0i2i");
+</script>
 
+<script>
+document.querySelector("#contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.send("service_b3lr60p", "template_5qdozpm", {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+    }).then(() => {
+
+        alert("Kiitos! Viestisi on lähetetty ❤️");
+        this.reset();
+
+    }, (error) => {
+        alert("Virhe! Yritä uudelleen 😢");
+        console.log(error);
+    });
+});
+</script>
 </body>
 </html>
